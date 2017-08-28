@@ -9,7 +9,8 @@
         "laravel/framework": "5.4.*",
         "laravelcollective/html": "^5.2.0",
         "laravel/tinker": "~1.0",
-        "intervention/image": "dev-master"
+        "intervention/image": "dev-master",
+        "hisorange/browser-detect": "2.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

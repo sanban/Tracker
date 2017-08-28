@@ -11,6 +11,7 @@ use PDO;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 use Redirect;
+use Controller;
 
 class TrackersController extends Controller
 {
@@ -71,6 +72,7 @@ class TrackersController extends Controller
     public function record(string $type, int $id)
     {
         $ip = Request::ip();
+        $browser = Request::server('HTTP_USER_AGENT');
         if($type == 'open')
         {
             $token_table = 'tokens';
@@ -88,7 +90,7 @@ class TrackersController extends Controller
         {
             $storagePath = storage_path('app/public/blank.png');
             DB::table($token_table)->whereId($id)->increment('opened');
-            DB::table('opens')->insert(['token_id' => $id, 'email' => $user_email, 'IP' => $ip, 'opened_at' => Carbon::now()]);
+            DB::table('opens')->insert(['token_id' => $id, 'email' => $user_email, 'IP' => $ip, 'Browser' => $browser, 'opened_at' => Carbon::now()]);
             return Image::make($storagePath)->response();
         }
         else if($type == 'click')
@@ -96,7 +98,7 @@ class TrackersController extends Controller
             DB::table($token_table)->whereId($id)->increment('clicked');
             foreach($tokens as $token)
                 $link = $token->link;
-            DB::table('clicks')->insert(['token_id' => $id, 'email' => $user_email, 'link' => $link, 'IP' => $ip, 'clicked_at' => Carbon::now()]);
+            DB::table('clicks')->insert(['token_id' => $id, 'email' => $user_email, 'link' => $link, 'IP' => $ip, 'Browser' => $browser, 'clicked_at' => Carbon::now()]);
             $link = 'http://' . $link;
             return Redirect::to($link);
         }

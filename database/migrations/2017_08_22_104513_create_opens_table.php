@@ -19,6 +19,7 @@ class CreateOpensTable extends Migration
             $table->string('email')->default('z@z.com');
             $table->timestamp('opened_at');
             $table->string('IP');
+            $table->string('Browser');
             $table->timestamps();
         });
     }

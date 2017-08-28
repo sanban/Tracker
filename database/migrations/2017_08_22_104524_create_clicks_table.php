@@ -20,6 +20,7 @@ class CreateClicksTable extends Migration
             $table->string('link');
             $table->timestamp('clicked_at');
             $table->string('IP');
+            $table->string('Browser');
             $table->timestamps();
         });
     }

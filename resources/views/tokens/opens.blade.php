@@ -6,9 +6,9 @@
 <body>
 
 
-ID    EMAIL      OPENED_AT     IP<br><br>
+ID    EMAIL      OPENED_AT     IP    BROWSER<br><br>
 @foreach($tokens as $token)
-    {{ $token->token_id }}   {{ $token->email }}   {{ $token->opened_at }} {{ $token->IP }}<br><br>
+    {{ $token->token_id }}   {{ $token->email }}   {{ $token->opened_at }} {{ $token->IP }}  {{ $token->Browser }}<br><br>
 @endforeach
 </body>
 </html>
