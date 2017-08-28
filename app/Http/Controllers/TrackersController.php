@@ -11,7 +11,6 @@ use PDO;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 use Redirect;
-use Controller;
 
 class TrackersController extends Controller
 {
