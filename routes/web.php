@@ -23,3 +23,5 @@ Route::get('/stats/{type}','TrackersController@showStats');
 Route::get('/stats/{type}/{id}','TrackersController@showIndividualStats');
 
 Route::get('/{type}/{id}','TrackersController@record');
+
+//Route::get('/check','TrackersController@check');
