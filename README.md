@@ -1,5 +1,6 @@
 # Tracker
 Open/Click tracking API
+
 The project is implementing these primary features.
 1. Token generation for open tracking of emails.
 2. Token generation for click tracking of links embedded in emails.
